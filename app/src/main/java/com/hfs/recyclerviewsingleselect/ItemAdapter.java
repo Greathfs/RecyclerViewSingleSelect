@@ -20,10 +20,14 @@ import java.util.List;
  * description 适配器
  */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+    private static final String TAG = "ItemAdapter";
+
     private List<ItemBean> mDatas;
     private Context mContext;
     private LayoutInflater mInflater;
-
+    /**
+     * 当前选中的位置
+     */
     private int mSelectedPos = -1;
 
     private RecyclerView mRv;
@@ -51,6 +55,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        Log.e(TAG, "执行onBindViewHolder: .....");
         holder.ivSelect.setSelected(mDatas.get(position).isSelected());
         holder.tvName.setText(mDatas.get(position).getName());
 
